@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZWORD - Men's Fashion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section with Logo and Navigation -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.jpeg" alt="ZWORD Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#shop">Shop</a>
+                    <ul class="dropdown-content">
+                        <li><a href="oversized.html">Oversized T-shirts</a></li>
+                        <li><a href="sweatshirts.html">Sweatshirts</a></li>
+                        <li><a href="activewear.html">Active Wear Tees</a></li>
+                        <li><a href="casualtees.html">Casual Tees</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="cart.html" title="Cart"><i class="fas fa-shopping-cart"></i></a></li> <!-- Cart icon -->
+                <li><a href="#" id="loginIcon" title="Sign Up"><i class="fas fa-user"></i></a></li> <!-- Sign Up icon -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Model Man Background -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to ZWORD</h1>
+            <p>Discover the latest men's fashion trends</p>
+            <button onclick="window.location.href='#shop'">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop">
+        <h2>Shop Our Collection</h2>
+		<br>
+        <div class="product-list">
+            <div class="product">
+                <a href="sweatshirts.html">
+                    <img src="images/sweatshirt1.jpeg" alt="Sweatshirt">
+                    <h3>Sweatshirt</h3>
+                </a>
+                <!-- Add to Cart button -->
+            </div>
+            <div class="product">
+                <a href="oversized.html">
+                    <img src="images/oversized-shirt1.jpeg" alt="Oversized T-Shirt">
+                    <h3>Oversized T-Shirt</h3>
+                </a>
+                
+            </div>
+            <div class="product">
+                <a href="casualtees.html">
+                    <img src="images/casualtee1.jpeg" alt="Casual Tees">
+                    <h3>Casual Tees</h3>
+                </a>
+                
+            </div>
+            <div class="product">
+                <a href="activewear.html">
+                    <img src="images/activewear1.jpeg" alt="Active Wear Tees">
+                    <h3>Active Wear Tees</h3>
+                </a>
+                
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@zword.com</p>
+        <p>Phone: +91 8111066655</p>
+    </section>
+
+    <!-- Signup Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Sign Up with ZWORD</h2>
+			<br> 
+            <form id="signupForm">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your mail-id" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Contact:</label>
+        <input type="tel" id="phone" placeholder="Enter your mobile number" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ZWORD. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Modal and Cart Functionality -->
+    <script>
+        // Get the modal
+        var modal = document.getElementById("loginModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("loginIcon");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementById("closeModal");
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Cart functionality
+        let cart = [];
+
+        function addToCart(item) {
+            cart.push(item);
+            alert(item + " has been added to your cart!");
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
+            console.log(cart); // For debugging
+        }
+    </script>
+</body>
+</html>
